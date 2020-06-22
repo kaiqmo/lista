@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/todoList/static/css/main.3edeccb4.chunk.css",
+    "main.js": "/todoList/static/js/main.d72f66ad.chunk.js",
+    "main.js.map": "/todoList/static/js/main.d72f66ad.chunk.js.map",
+    "runtime-main.js": "/todoList/static/js/runtime-main.4355a649.js",
+    "runtime-main.js.map": "/todoList/static/js/runtime-main.4355a649.js.map",
+    "static/js/2.9f764afb.chunk.js": "/todoList/static/js/2.9f764afb.chunk.js",
+    "static/js/2.9f764afb.chunk.js.map": "/todoList/static/js/2.9f764afb.chunk.js.map",
+    "index.html": "/todoList/index.html",
+    "precache-manifest.0731ae9ad163f0e86f2fd84b3828a635.js": "/todoList/precache-manifest.0731ae9ad163f0e86f2fd84b3828a635.js",
+    "service-worker.js": "/todoList/service-worker.js",
+    "static/css/main.3edeccb4.chunk.css.map": "/todoList/static/css/main.3edeccb4.chunk.css.map",
+    "static/js/2.9f764afb.chunk.js.LICENSE.txt": "/todoList/static/js/2.9f764afb.chunk.js.LICENSE.txt",
+    "static/media/crown.ed28accb.svg": "/todoList/static/media/crown.ed28accb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4355a649.js",
+    "static/js/2.9f764afb.chunk.js",
+    "static/css/main.3edeccb4.chunk.css",
+    "static/js/main.d72f66ad.chunk.js"
+  ]
+}
