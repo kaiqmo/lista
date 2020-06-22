@@ -8,13 +8,11 @@ import Header from './components/header-component/header-component.jsx';
 import {setCurrentUser} from './redux/user/user.actions';
 
 import TodoPage from './pages/todolist/todolist.component.jsx';
-import Contact from './pages/contact/contact.component.jsx';
+import Footer from './components/footer/footer.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in/sign-in.component.jsx';
 import {auth, CreateUserProfileDocument,firestore} from './firebase/firebase.utils';
 import {createStructuredSelector} from 'reselect';
 import {selectCurrentUser} from './redux/user/user.selector';
-// import Grid from '@material-ui/core/Grid';
-// import Homepage from './pages/homepage.component';
 
 class App extends React.Component {
 
@@ -78,16 +76,19 @@ class App extends React.Component {
   componentWillUnmount(){
     this.unsubscribeFromAuth();
   }
+  
   render(){
     return (
       <div className="App">
         <Header />
         
         <Switch>
-          <Route exact path='./contato' component={Contact} /> 
-          <Route exact path='./todolist' component={TodoPage} />
-          <Route path='/' render={()=> this.props.currentUser? (<Redirect to='./todolist' />) : (<SignInAndSignUpPage />) } />
+          {/* <Route path='/signin' component={SignInAndSignUpPage} /> */}
+          <Route exact path='/todolist' component={TodoPage} />
+          <Route  path='/' render={()=> this.props.currentUser? (<Redirect to='/todolist' />) : (<SignInAndSignUpPage />) } />
+          <Route component={SignInAndSignUpPage} />
         </Switch>
+        <Footer />
       </div>
     );
   }

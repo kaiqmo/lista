@@ -44,15 +44,31 @@
         border: none;
       }
     }
-    &.sucess{
-      background-color:lightgreen;
+
+    &.success{
+      background-color: lightseagreen;
+      color:black;
+      border: 1px solid black;
+
+      &:hover{
+        background-color: black;
+        color: white;
+        border: none;
+      }
     }
-    &.failed{
+
+    &.danger{
       background-color:lightcoral;
+      color:black;
+      border: 1px solid black;
+
+      &:hover{
+        background-color: black;
+        color: white;
+        border: none;
+      }
     }
-    &.grey{
-      background-color:lightgrey;
-    }
+    
     
   }
 

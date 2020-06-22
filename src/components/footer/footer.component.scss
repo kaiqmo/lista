@@ -1,0 +1,27 @@
+
+.footer { 
+    clear: both;
+    position: fixed;
+    font-family: monospace;
+    left: 0;
+    bottom: 0;
+    width: 70%;
+    margin: 15% 15% 1em 15%;
+    height: fit-content;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    background-color: black;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 1rem;
+
+  }
+  
+@media(max-width:600){
+  .footer{
+    margin-bottom: 12px;
+    height: 40px;
+    
+  }
+}

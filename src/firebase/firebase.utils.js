@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 // sempre precisa importa o firease completo pra dps poder dar import no store e auth
 const config  = {
     apiKey: "AIzaSyDuHTtUoxaEUp7Bc05pmaDE6Quukvp0k1A",

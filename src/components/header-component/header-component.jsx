@@ -17,27 +17,23 @@ const Header = ({currentUser,hidden}) =>{
         auth.signOut();
     }
 
-    function handleClick(){
-        return (<Redirect to ='/signin'/>);
-    }
-
     return(
     <div className='header'>
         <Link className='logo-container' to='/'>
             <Logo className='logo' />
         </Link>
         <div className='options'>
-        <div className='option' onClick={()=>handleClick()} >Home</div>
-        <Link className='option' to='/contact'>Contato</Link>
+        <Link className='option'  to='/'><h3>HOME</h3></Link>
             {
                 currentUser?
                 
                 <div className='option' onClick={() => signOut()
-                }>
+                }><h3>
                     SIGN OUT
+                </h3>
                 </div>
                 :
-                <Link className='option' to='/signin'> SIGN IN</Link>
+                <Link className='option' to='/signin'><h3>SIGN IN</h3> </Link>
             }
         </div>
     </div>

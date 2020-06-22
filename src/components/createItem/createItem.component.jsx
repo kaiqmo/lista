@@ -16,12 +16,10 @@ export default class CreateItem extends React.Component{
     }
     handleSubmit = async event=>{
         event.preventDefault();
-        const {text} = this.state;
-
         try{
             var userAuth = auth.currentUser;
             var item = this.state.text;
-            var res = await addItem(userAuth,item);
+            await addItem(userAuth,item);
             this.setState({text:''});
             await UpdateList(userAuth).then((r)=> {
                 // console.log(r);

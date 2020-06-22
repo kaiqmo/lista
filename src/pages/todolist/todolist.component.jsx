@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {selectCurrentUser} from '../../redux/user/user.selector';
 import {createStructuredSelector} from 'reselect';
@@ -18,7 +18,7 @@ const TodoPage = (currentUser) =>{
                 currentUser.currentUser?
                    <CreateItem />
                 :
-                <Redirect to='./signin'/>
+                <Redirect to='../signin'/>
               }
               <div className="collection">
                 {
