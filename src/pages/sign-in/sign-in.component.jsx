@@ -6,8 +6,6 @@ import SignUp from '../../components/sign-up/sign-up.component.jsx';
 
 const SignInAndSignUpPage = () => (
     <div className='sign-in-and-sign-up'>
-        <h3 className="sign-flag">Sign In
-        </h3> 
         <SignIn />
         <SignUp />
     </div>

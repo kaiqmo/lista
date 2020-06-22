@@ -10,6 +10,10 @@
     
     .buttons{
         display: flex;
-        justify-content: space-between;
+        margin: 1em;
+        padding:1em;
+        .custom-button{
+            margin-right: 25px;
+        }
     }
 }

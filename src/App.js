@@ -10,7 +10,7 @@ import {setCurrentUser} from './redux/user/user.actions';
 import TodoPage from './pages/todolist/todolist.component.jsx';
 import Footer from './components/footer/footer.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in/sign-in.component.jsx';
-import {auth, CreateUserProfileDocument,firestore} from './firebase/firebase.utils';
+import {auth, CreateUserProfileDocument} from './firebase/firebase.utils';
 import {createStructuredSelector} from 'reselect';
 import {selectCurrentUser} from './redux/user/user.selector';
 
@@ -57,20 +57,6 @@ class App extends React.Component {
       }       
       });
 
-      firestore.collection("users")
-      .onSnapshot(function(snapshot) {
-          snapshot.docChanges().forEach(function(change) {
-              if (change.type === "added") {
-                  console.log("New city: ", change.doc.data());
-              }
-              if (change.type === "modified") {
-                  console.log("Modified city: ", change.doc.data());
-              }
-              if (change.type === "removed") {
-                  console.log("Removed city: ", change.doc.data());
-              }
-          });
-      });
   }
   
   componentWillUnmount(){

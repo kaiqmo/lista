@@ -36,18 +36,18 @@ export default class CreateItem extends React.Component{
     render(){
         return (
             <div className='new-task'>
-                <h2>Crie uma nova tarefa</h2>
+                <h2>Create a new task</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form">
                         <FormInput 
                             name='text' type='text' 
-                            label='Nova tarefa'
+                            label='New Task'
                             handleChange={this.handleChange}
                             value={this.state.text} required
                             styles="width: 60%;
                             margin-inline-start: auto;" />
                         <div className='buttons'>
-                            <CustomButton inverted type='submit'>Criar Tarefa</CustomButton>
+                            <CustomButton inverted type='submit'>Add Task</CustomButton>
                         </div>
                     </div>
                 </form>

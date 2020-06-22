@@ -29,7 +29,7 @@ const TodoPage = (currentUser) =>{
                      ))
                     :
                   <div className="no-list-div">
-                      <h2>Sem tarefas atualmente</h2>
+                      <h2>No tasks available at the moment.</h2>
                    </div>                 
                 }
               </div>

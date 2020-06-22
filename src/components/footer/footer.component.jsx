@@ -23,7 +23,7 @@ const Footer = ()=> {
     <div className="footer">
         <Grid container spacing={3}>
         <Grid item xs>
-          <Paper className={classes.paper}>Criador: Kaique</Paper>
+          <Paper className={classes.paper}>Creator: Kaique</Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>Email: kaiqmowork@gmail.com</Paper>
