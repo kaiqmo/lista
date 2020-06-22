@@ -1,26 +1,102 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Header from './components/header-component/header-component.jsx';
 
-export default App;
+import {setCurrentUser} from './redux/user/user.actions';
+
+import TodoPage from './pages/todolist/todolist.component.jsx';
+import Contact from './pages/contact/contact.component.jsx';
+import SignInAndSignUpPage from './pages/sign-in/sign-in.component.jsx';
+import {auth, CreateUserProfileDocument,firestore} from './firebase/firebase.utils';
+import {createStructuredSelector} from 'reselect';
+import {selectCurrentUser} from './redux/user/user.selector';
+// import Grid from '@material-ui/core/Grid';
+// import Homepage from './pages/homepage.component';
+
+class App extends React.Component {
+
+  
+  unsubscribeFromAuth = null;
+
+  componentWillMount(){
+
+    const {setCurrentUser} = this.props;
+
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth=> {
+      if(userAuth){
+        const userRef = await CreateUserProfileDocument(userAuth);
+        
+        userRef.onSnapshot( {
+          includeMetadataChanges: true},snapShot =>{
+          setCurrentUser({
+            id:snapShot.id,
+            ...snapShot.data()
+          });
+        });
+      }
+        setCurrentUser(userAuth);
+        
+      });
+  }
+  componentDidMount(){
+
+    const {setCurrentUser} = this.props;
+
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth=> {
+      if(userAuth){
+        const userRef = await CreateUserProfileDocument(userAuth);
+        
+        userRef.onSnapshot( snapShot =>{
+          setCurrentUser({
+            id:snapShot.id,
+            ...snapShot.data()
+          });
+        });
+      }       
+      });
+
+      firestore.collection("users")
+      .onSnapshot(function(snapshot) {
+          snapshot.docChanges().forEach(function(change) {
+              if (change.type === "added") {
+                  console.log("New city: ", change.doc.data());
+              }
+              if (change.type === "modified") {
+                  console.log("Modified city: ", change.doc.data());
+              }
+              if (change.type === "removed") {
+                  console.log("Removed city: ", change.doc.data());
+              }
+          });
+      });
+  }
+  
+  componentWillUnmount(){
+    this.unsubscribeFromAuth();
+  }
+  render(){
+    return (
+      <div className="App">
+        <Header />
+        
+        <Switch>
+          <Route exact path='/contato' component={Contact} /> 
+          <Route exact path='/todolist' component={TodoPage} />
+          <Route path='/' render={()=> this.props.currentUser? (<Redirect to='/todolist' />) : (<SignInAndSignUpPage />) } />
+        </Switch>
+      </div>
+    );
+  }
+}
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+});
+const mapDispatchToProps = dispatch =>({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+}); 
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
