@@ -18,7 +18,7 @@ const TodoPage = (currentUser) =>{
                 currentUser.currentUser?
                    <CreateItem />
                 :
-                <Redirect to='/signin'/>
+                <Redirect to='./signin'/>
               }
               <div className="collection">
                 {

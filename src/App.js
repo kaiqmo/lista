@@ -84,9 +84,9 @@ class App extends React.Component {
         <Header />
         
         <Switch>
-          <Route exact path='/contato' component={Contact} /> 
-          <Route exact path='/todolist' component={TodoPage} />
-          <Route path='/' render={()=> this.props.currentUser? (<Redirect to='/todolist' />) : (<SignInAndSignUpPage />) } />
+          <Route exact path='./contato' component={Contact} /> 
+          <Route exact path='./todolist' component={TodoPage} />
+          <Route path='/' render={()=> this.props.currentUser? (<Redirect to='./todolist' />) : (<SignInAndSignUpPage />) } />
         </Switch>
       </div>
     );
