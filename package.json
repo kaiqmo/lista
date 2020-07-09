@@ -1,7 +1,7 @@
 {
   "name": "todolist",
   "version": "0.1.0",
-  "homepage": "https://kaiqmo.github.io/todoList",
+  "homepage": "https://kaiqmo.github.io/lista",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
