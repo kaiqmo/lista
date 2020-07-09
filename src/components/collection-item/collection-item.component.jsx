@@ -7,33 +7,73 @@ import CustomButton from '../custom-button/custom-button.component.jsx';
 import {selectCurrentUser} from '../../redux/user/user.selector';
 import {createStructuredSelector} from 'reselect';
 import Grid from '@material-ui/core/Grid';
-import {auth, deleteItem,UpdateList} from '../../firebase/firebase.utils.js';
+import {auth, deleteItem,UpdateList, completedItem} from '../../firebase/firebase.utils.js';
 
 import {setCurrentUser} from '../../redux/user/user.actions';
 
-const handleRemove = async(item)=>{
+
+const handleButtons = async(item,button)=>{
   try{
     var userAuth = auth.currentUser;
-    await deleteItem(userAuth,item);
+    switch(button){
+      case "deleteItem":
+        await deleteItem(userAuth,item);
+        break;
+      case "updateItem":
+        break;
+      case "completeItem":
+        await completedItem(userAuth,item);
+        break;
+      case "deleteAll":
+        break;
+      default: return false;
+
+    }
     await UpdateList(userAuth).then((r)=> {
       console.log(r);
       setCurrentUser({id: r.id, ...r.data()});
-    })
+    });
   }catch(error){
     console.error(error);
   }
 }
 
-const CollectionItem = ( { item, currentUser }) => {
+const CollectionItem = ( { item,currentUser,completed }) => {
     return(
-    <div className='collection-item'>
+    
+    <div className={` ${completed? completed:''} collection-item`}>
         <div className='collection-footer'>
         <Grid item xs={6}>
+              {
+                item?
+                
+                // <div className='title'>{item.title}</div>
                 <div className='name'>{item.text}</div>
+                // <div className="due_date">{item.date}</div>
+                
+                :
+              
+                ''
+              }
         </Grid>
         <Grid item xs={6}>
-            <div className="inline-buttons" >
-            <CustomButton danger onClick={()=>handleRemove(item)} >Remove</CustomButton>
+          <div className="inline-buttons" >
+            
+            {
+              item.deleteAll?
+              <CustomButton success onClick={()=>handleButtons(item,"deleteAll")} >Delete All</CustomButton>
+              :
+              <CustomButton danger onClick={()=>handleButtons(item,"deleteItem")} >Delete</CustomButton>
+            }
+          
+            {
+              item.completed?
+              ''
+              :
+              <CustomButton success onClick={()=>handleButtons(item,"completeItem")} >Completed</CustomButton>
+            }
+            
+            
           </div>
         </Grid> 
         </div>

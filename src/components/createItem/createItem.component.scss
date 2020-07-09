@@ -4,16 +4,15 @@
     position: relative;
     /* background-color: lightgrey; */
     border-radius: 5px;
-    border: 10px;
+    // border-style: solid;
+    // border-width: thin;
     margin-bottom: 0.5rem;
-    padding: 1rem;
-    .form{
-        display: inline-flex;
-    }
+    padding: 2rem;
+    text-align: center;
     .buttons{
         display: flex;
         text-align: center;
         align-items: center;
-        margin: 0rem 2rem 0rem 2rem;
+        margin: 0 45% 0 45%;
     }
 }

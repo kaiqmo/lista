@@ -11,19 +11,20 @@ export default class CreateItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            text:''
+            text:'',
+            title:'',
+            date:''
         }
     }
     handleSubmit = async event=>{
         event.preventDefault();
         try{
             var userAuth = auth.currentUser;
-            var item = this.state.text;
-            await addItem(userAuth,item);
-            this.setState({text:''});
+            await addItem(userAuth,this.state.text,this.state.title,this.state.date);
+            this.setState({});
             await UpdateList(userAuth).then((r)=> {
-                // console.log(r);
-                setCurrentUser({id: r.id, ...r.data()});
+                console.log(r);
+                setCurrentUser({...r.data()});
               })
         }catch(error){
             console.error(error);
@@ -38,18 +39,30 @@ export default class CreateItem extends React.Component{
             <div className='new-task'>
                 <h2>Create a new task</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="form">
+                        <FormInput 
+                            name='title' type='text' 
+                            label='Title'
+                            handleChange={this.handleChange}
+                            value={this.state.title} required 
+                        />
+
                         <FormInput 
                             name='text' type='text' 
-                            label='New Task'
+                            label='Name'
                             handleChange={this.handleChange}
                             value={this.state.text} required
-                            styles="width: 60%;
-                            margin-inline-start: auto;" />
+                        />
+
+                        <FormInput 
+                            name='date' type='date' 
+                            label=''
+                            handleChange={this.handleChange}
+                            value={this.state.date} required
+                        />
+                            
                         <div className='buttons'>
                             <CustomButton inverted type='submit'>Add Task</CustomButton>
                         </div>
-                    </div>
                 </form>
             </div>
         )

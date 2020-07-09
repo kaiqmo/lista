@@ -65,11 +65,12 @@ const config  = {
         return userRef;
   };
 
-  export const addItem = async(userAuth,item) => {
+  export const addItem = async(userAuth,text,title,date) => {
     var id = String(new Date().getTime());
     const data = {
-      text: item,
-      title:"novoItem",
+      text: text,
+      title:title,
+      date:date,
       id:id,
       createdAt:id
     };
@@ -84,6 +85,32 @@ const config  = {
         // this.setState({ isSubmitting: false });
       });
   };
+
+  export const completedItem = async(userAuth,item) => {
+    var todays_date = new Date();
+    var data = {
+      ...item,
+      completed:todays_date,
+    };
+    await firestore.collection(`users/${userAuth.uid}/lista`).doc(item.id).update(data)
+    .then( snapShot=>snapShot.val())
+    .catch( e =>({
+      errorCode:e.code,
+      errorMessage:e.message
+    }));
+      
+      //     .child(id)
+      //     .update(data)
+      //     .then(() => ref.once('value'))
+      //     .then(snapshot => snapshot.val())
+      //     .catch(error => ({
+      //       errorCode: error.code,
+      //       errorMessage: error.message
+      //     }));
+      // }
+
+  };
+
 
   export const UpdateList = async(userAuth)=>{
     if(!userAuth) return 0; // if the user doesnt exist
@@ -128,6 +155,24 @@ const config  = {
         // this.setState({ isSubmitting: false });
       });
   };
+  
+  export const deleteAll = async(userAuth,item) => {
+    // Create a reference to the cities collection
+
+    var lista = firestore.collection(`users/${userAuth.uid}/`);
+    
+    // Create a query against the collection.
+    await lista.doc("lista").delete()
+      .then(() => {
+        console.log('Lista removed!');
+      })
+      .catch(error => {
+        return error;
+        // NotificationManager.error(error.message, "Delete item failed");
+        // this.setState({ isSubmitting: false });
+      });
+  };
+
 
 
 

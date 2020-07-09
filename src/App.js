@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './App.css';
 
@@ -70,9 +70,9 @@ class App extends React.Component {
         
         <Switch>
           {/* <Route path='/signin' component={SignInAndSignUpPage} /> */}
-          <Route exact path='/todolist' component={TodoPage} />
-          <Route  path='/' render={()=> this.props.currentUser? (<Redirect to='/todolist' />) : (<SignInAndSignUpPage />) } />
-          <Route component={SignInAndSignUpPage} />
+          {/* <Route  path='/todolist' component={TodoPage} /> */}
+          <Route  path='/' render={()=> this.props.currentUser? (<TodoPage />) : (<SignInAndSignUpPage />) } />
+          {/* <Route component={SignInAndSignUpPage} /> */}
         </Switch>
         <Footer />
       </div>
