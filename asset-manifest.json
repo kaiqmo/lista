@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "//kaiqmo.github.io/lista/static/css/main.ac4d74c8.chunk.css",
-    "main.js": "//kaiqmo.github.io/lista/static/js/main.2c3541c0.chunk.js",
-    "main.js.map": "//kaiqmo.github.io/lista/static/js/main.2c3541c0.chunk.js.map",
+    "main.css": "//kaiqmo.github.io/lista/static/css/main.99687e11.chunk.css",
+    "main.js": "//kaiqmo.github.io/lista/static/js/main.670936ae.chunk.js",
+    "main.js.map": "//kaiqmo.github.io/lista/static/js/main.670936ae.chunk.js.map",
     "runtime-main.js": "//kaiqmo.github.io/lista/static/js/runtime-main.7660eb7a.js",
     "runtime-main.js.map": "//kaiqmo.github.io/lista/static/js/runtime-main.7660eb7a.js.map",
-    "static/js/2.45bf2e37.chunk.js": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js",
-    "static/js/2.45bf2e37.chunk.js.map": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js.map",
+    "static/js/2.25c2c50a.chunk.js": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js",
+    "static/js/2.25c2c50a.chunk.js.map": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js.map",
     "index.html": "//kaiqmo.github.io/lista/index.html",
-    "precache-manifest.cfc88cae01b0b518d7f8eade1cbdd63a.js": "//kaiqmo.github.io/lista/precache-manifest.cfc88cae01b0b518d7f8eade1cbdd63a.js",
+    "precache-manifest.4315c4e6260c57a4da86f0a9198649c2.js": "//kaiqmo.github.io/lista/precache-manifest.4315c4e6260c57a4da86f0a9198649c2.js",
     "service-worker.js": "//kaiqmo.github.io/lista/service-worker.js",
-    "static/css/main.ac4d74c8.chunk.css.map": "//kaiqmo.github.io/lista/static/css/main.ac4d74c8.chunk.css.map",
-    "static/js/2.45bf2e37.chunk.js.LICENSE.txt": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js.LICENSE.txt",
-    "static/media/logo.jpeg": "//kaiqmo.github.io/lista/static/media/logo.b03bf9ce.jpeg",
+    "static/css/main.99687e11.chunk.css.map": "//kaiqmo.github.io/lista/static/css/main.99687e11.chunk.css.map",
+    "static/js/2.25c2c50a.chunk.js.LICENSE.txt": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js.LICENSE.txt",
     "static/media/header.styles.scss": "//kaiqmo.github.io/lista/static/media/logo2.2db97773.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.7660eb7a.js",
-    "static/js/2.45bf2e37.chunk.js",
-    "static/css/main.ac4d74c8.chunk.css",
-    "static/js/main.2c3541c0.chunk.js"
+    "static/js/2.25c2c50a.chunk.js",
+    "static/css/main.99687e11.chunk.css",
+    "static/js/main.670936ae.chunk.js"
   ]
 }
