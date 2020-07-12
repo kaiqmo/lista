@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e7287175da1f6fc3566997c4bf0a9448",
+    "revision": "33086181b7c4cceb1acd9408e36f9d4f",
     "url": "//kaiqmo.github.io/lista/index.html"
   },
   {
-    "revision": "f728a245f01910f28f92",
+    "revision": "927088726b0482fbe8fa",
     "url": "//kaiqmo.github.io/lista/static/css/main.f9ba1b76.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f728a245f01910f28f92",
-    "url": "//kaiqmo.github.io/lista/static/js/main.4ffda917.chunk.js"
+    "revision": "927088726b0482fbe8fa",
+    "url": "//kaiqmo.github.io/lista/static/js/main.150f8239.chunk.js"
   },
   {
     "revision": "5da49ffb23bb71499ee5",
