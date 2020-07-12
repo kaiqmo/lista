@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "//kaiqmo.github.io/lista/static/css/main.f9ba1b76.chunk.css",
-    "main.js": "//kaiqmo.github.io/lista/static/js/main.150f8239.chunk.js",
-    "main.js.map": "//kaiqmo.github.io/lista/static/js/main.150f8239.chunk.js.map",
+    "main.js": "//kaiqmo.github.io/lista/static/js/main.ecb7b9d5.chunk.js",
+    "main.js.map": "//kaiqmo.github.io/lista/static/js/main.ecb7b9d5.chunk.js.map",
     "runtime-main.js": "//kaiqmo.github.io/lista/static/js/runtime-main.7660eb7a.js",
     "runtime-main.js.map": "//kaiqmo.github.io/lista/static/js/runtime-main.7660eb7a.js.map",
     "static/js/2.45bf2e37.chunk.js": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js",
     "static/js/2.45bf2e37.chunk.js.map": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js.map",
     "index.html": "//kaiqmo.github.io/lista/index.html",
-    "precache-manifest.39ce87a10e4601dc76e90f703ab9764d.js": "//kaiqmo.github.io/lista/precache-manifest.39ce87a10e4601dc76e90f703ab9764d.js",
+    "precache-manifest.6c4afc1c682ac55be194aa7e85bb5a6a.js": "//kaiqmo.github.io/lista/precache-manifest.6c4afc1c682ac55be194aa7e85bb5a6a.js",
     "service-worker.js": "//kaiqmo.github.io/lista/service-worker.js",
     "static/css/main.f9ba1b76.chunk.css.map": "//kaiqmo.github.io/lista/static/css/main.f9ba1b76.chunk.css.map",
     "static/js/2.45bf2e37.chunk.js.LICENSE.txt": "//kaiqmo.github.io/lista/static/js/2.45bf2e37.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.7660eb7a.js",
     "static/js/2.45bf2e37.chunk.js",
     "static/css/main.f9ba1b76.chunk.css",
-    "static/js/main.150f8239.chunk.js"
+    "static/js/main.ecb7b9d5.chunk.js"
   ]
 }
