@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "//kaiqmo.github.io/lista/static/css/main.3ab0e763.chunk.css",
-    "main.js": "//kaiqmo.github.io/lista/static/js/main.670936ae.chunk.js",
-    "main.js.map": "//kaiqmo.github.io/lista/static/js/main.670936ae.chunk.js.map",
+    "main.css": "//kaiqmo.github.io/lista/static/css/main.ea8002f4.chunk.css",
+    "main.js": "//kaiqmo.github.io/lista/static/js/main.25d232e9.chunk.js",
+    "main.js.map": "//kaiqmo.github.io/lista/static/js/main.25d232e9.chunk.js.map",
     "runtime-main.js": "//kaiqmo.github.io/lista/static/js/runtime-main.7660eb7a.js",
     "runtime-main.js.map": "//kaiqmo.github.io/lista/static/js/runtime-main.7660eb7a.js.map",
-    "static/js/2.25c2c50a.chunk.js": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js",
-    "static/js/2.25c2c50a.chunk.js.map": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js.map",
+    "static/js/2.4fa09a42.chunk.js": "//kaiqmo.github.io/lista/static/js/2.4fa09a42.chunk.js",
+    "static/js/2.4fa09a42.chunk.js.map": "//kaiqmo.github.io/lista/static/js/2.4fa09a42.chunk.js.map",
     "index.html": "//kaiqmo.github.io/lista/index.html",
-    "precache-manifest.133f8c5e3980ce189046be1c815b6782.js": "//kaiqmo.github.io/lista/precache-manifest.133f8c5e3980ce189046be1c815b6782.js",
+    "precache-manifest.15d8362d0f89dd73a40755862c1ddb75.js": "//kaiqmo.github.io/lista/precache-manifest.15d8362d0f89dd73a40755862c1ddb75.js",
     "service-worker.js": "//kaiqmo.github.io/lista/service-worker.js",
-    "static/css/main.3ab0e763.chunk.css.map": "//kaiqmo.github.io/lista/static/css/main.3ab0e763.chunk.css.map",
-    "static/js/2.25c2c50a.chunk.js.LICENSE.txt": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js.LICENSE.txt",
+    "static/css/main.ea8002f4.chunk.css.map": "//kaiqmo.github.io/lista/static/css/main.ea8002f4.chunk.css.map",
+    "static/js/2.4fa09a42.chunk.js.LICENSE.txt": "//kaiqmo.github.io/lista/static/js/2.4fa09a42.chunk.js.LICENSE.txt",
     "static/media/header.styles.scss": "//kaiqmo.github.io/lista/static/media/logo2.2db97773.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.7660eb7a.js",
-    "static/js/2.25c2c50a.chunk.js",
-    "static/css/main.3ab0e763.chunk.css",
-    "static/js/main.670936ae.chunk.js"
+    "static/js/2.4fa09a42.chunk.js",
+    "static/css/main.ea8002f4.chunk.css",
+    "static/js/main.25d232e9.chunk.js"
   ]
 }

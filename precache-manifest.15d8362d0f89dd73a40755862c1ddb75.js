@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "80d4e7866ade705a165d8e8fee42b5bd",
+    "revision": "329f988240afd06e96ccabaf97918919",
     "url": "//kaiqmo.github.io/lista/index.html"
   },
   {
-    "revision": "30aee59f6c5aa4351f88",
-    "url": "//kaiqmo.github.io/lista/static/css/main.3ab0e763.chunk.css"
+    "revision": "c6c4af5ba21a09d5f2cf",
+    "url": "//kaiqmo.github.io/lista/static/css/main.ea8002f4.chunk.css"
   },
   {
-    "revision": "1b363eeeebae5991a946",
-    "url": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js"
+    "revision": "f3fe34efaae883857a7c",
+    "url": "//kaiqmo.github.io/lista/static/js/2.4fa09a42.chunk.js"
   },
   {
     "revision": "ac00860f10b301ce4ff76aaa802ce348",
-    "url": "//kaiqmo.github.io/lista/static/js/2.25c2c50a.chunk.js.LICENSE.txt"
+    "url": "//kaiqmo.github.io/lista/static/js/2.4fa09a42.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "30aee59f6c5aa4351f88",
-    "url": "//kaiqmo.github.io/lista/static/js/main.670936ae.chunk.js"
+    "revision": "c6c4af5ba21a09d5f2cf",
+    "url": "//kaiqmo.github.io/lista/static/js/main.25d232e9.chunk.js"
   },
   {
     "revision": "5da49ffb23bb71499ee5",
