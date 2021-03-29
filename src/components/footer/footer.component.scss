@@ -3,24 +3,16 @@
   clear: both;
   font-family: monospace;
   left: 0;
+  right: unset;
   bottom: 0;
-  width: 70%;
-  margin: 1em 15% 1em 15%;
-  height: 7.5%;
-  font-size: 18px;
+  width: 25em;
+  height: 3em;
   color: white;
   text-align: center;
-  background-color: black;
   align-items: center;
   border-radius: 1rem;
   padding: 1rem;
   display: flex;
-  }
-  
-@media(max-width:600){
-  .footer{
-    margin-bottom: 12px;
-    height: 40px;
-    
-  }
+  position: absolute;
 }
+  

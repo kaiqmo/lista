@@ -67,7 +67,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        
         <Switch>
           {/* <Route path='/signin' component={SignInAndSignUpPage} /> */}
           {/* <Route  path='/todolist' component={TodoPage} /> */}

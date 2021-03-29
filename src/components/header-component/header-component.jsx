@@ -3,7 +3,7 @@ import { Link  } from 'react-router-dom';
 import {connect} from 'react-redux';
 import './header.styles.scss';
 
-import {ReactComponent as Logo} from '../../assets/crown.svg';
+import Logo from '../../assets/Logo.png';
 import {auth} from '../../firebase/firebase.utils';
 
 import {createStructuredSelector} from 'reselect';
@@ -20,7 +20,7 @@ const Header = ({currentUser,hidden}) =>{
     return(
     <div className='header'>
         <Link className='logo-container' to='/'>
-            <Logo className='logo' />
+            <img src={Logo} alt="Logo" className="logo" />
         </Link>
         <div className='options'>
         <Link className='option'  to='/'><h3>HOME</h3></Link>

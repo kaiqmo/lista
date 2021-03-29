@@ -44,7 +44,7 @@
       }
     }
   }
-  .collection-footer {
+  .collection-body {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -64,11 +64,22 @@
 }
 @media(max-width:600px){
       .collection-item{
-        width:25%;
         display: block;
         justify-content: space-between;
         margin-bottom: 20px;
-        
+        width:100%;
+        .MuiGrid-grid-xs-6{
+            width:100%;
+            max-width: 100%;;
+        }
+        .inline-buttons{
+            width:100%;
+            position: relative;
+            .custom-button{
+                min-width: 0;
+                max-width:100%;
+            }
+        }
         .image {
           width: 95%;
           height: 95%;
@@ -77,7 +88,7 @@
           margin-bottom: 5px;
         }
       
-        .collection-footer {
+        .collection-body {
           display:contents;
           justify-content: space-between;
           font-size: 14px;

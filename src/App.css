@@ -1,19 +1,28 @@
 body{
   font-family: 'monospace';
-  padding: 20px 60px;
+  overflow: hidden;
 }
 a{
   text-decoration: none;
   color:black;
+}
+.App{
+  
+  padding:4em 6em;
 }
 
 *{
   box-sizing: border-box;
 }
 
-@media(max-width:600px){
+@media(max-width:966px){
   body{
       font-family: 'Open Sans Condensed';
-      font-size: 12px;
+      font-size: .85em;
+  }
+  .App{
+    width:100%;
+    padding:1em;
+    overflow-x: hidden;
   }
 }

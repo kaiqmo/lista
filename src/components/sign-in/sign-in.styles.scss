@@ -17,3 +17,23 @@
         }
     }
 }
+@media(max-width:966px){
+    .sign-in{
+        max-width: 100%;
+        width:100%;
+        margin:0;
+        span{
+            font-size:1.05em;
+            line-height:1em;
+        }
+        .buttons{
+            margin:0;
+            padding:0;
+            .custom-button{
+                margin-right: 10pt;
+                padding: 0 2em;
+                min-width:10em;
+            }
+        }
+    }
+}

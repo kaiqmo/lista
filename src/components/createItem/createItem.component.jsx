@@ -37,25 +37,32 @@ export default class CreateItem extends React.Component{
     render(){
         return (
             <div className='new-task'>
-                <h2>Create a new task</h2>
+                <h2>Criar</h2>
                 <form onSubmit={this.handleSubmit}>
                         <FormInput 
                             name='title' type='text' 
-                            label='Title'
+                            label='Titulo'
                             handleChange={this.handleChange}
                             value={this.state.title} required 
                         />
 
                         <FormInput 
                             name='text' type='text' 
-                            label='Name'
+                            label='Descrição'
+                            handleChange={this.handleChange}
+                            value={this.state.text} required
+                        />
+
+                        <FormInput 
+                            name='race' type='text' 
+                            label='Raça'
                             handleChange={this.handleChange}
                             value={this.state.text} required
                         />
 
                         <FormInput 
                             name='date' type='date' 
-                            label=''
+                            label='Data de expiração'
                             handleChange={this.handleChange}
                             value={this.state.date} required
                         />

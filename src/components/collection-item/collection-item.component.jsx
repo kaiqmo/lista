@@ -42,14 +42,16 @@ const CollectionItem = ( { item,currentUser,completed }) => {
     return(
     
     <div className={` ${completed? completed:''} collection-item`}>
-        <div className='collection-footer'>
+        <div className='collection-body'>
         <Grid item xs={6}>
               {
                 item?
-                
-                // <div className='title'>{item.title}</div>
-                <div className='name'>{item.text}</div>
-                // <div className="due_date">{item.date}</div>
+                <div className="body">
+                    <h2 className="title">Nome: <span> {item.title} </span>
+                    </h2>
+                    <span className="description">Descrição: {item.text}</span>
+                    <div className="due_date">Data Expiração: {item.date}</div>
+                </div>
                 
                 :
               
