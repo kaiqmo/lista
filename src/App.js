@@ -8,7 +8,6 @@ import Header from './components/header-component/header-component.jsx';
 import {setCurrentUser} from './redux/user/user.actions';
 
 import TodoPage from './pages/todolist/todolist.component.jsx';
-import Footer from './components/footer/footer.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in/sign-in.component.jsx';
 import {auth, CreateUserProfileDocument} from './firebase/firebase.utils';
 import {createStructuredSelector} from 'reselect';
@@ -73,7 +72,6 @@ class App extends React.Component {
           <Route  path='/' render={()=> this.props.currentUser? (<TodoPage />) : (<SignInAndSignUpPage />) } />
           {/* <Route component={SignInAndSignUpPage} /> */}
         </Switch>
-        <Footer />
       </div>
     );
   }

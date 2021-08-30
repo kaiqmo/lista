@@ -1,18 +1,20 @@
 
 .footer { 
-  clear: both;
-  font-family: monospace;
-  left: 0;
-  right: unset;
-  bottom: 0;
-  width: 25em;
-  height: 3em;
-  color: white;
-  text-align: center;
-  align-items: center;
-  border-radius: 1rem;
-  padding: 1rem;
-  display: flex;
-  position: absolute;
+    clear: both;
+    font-family: monospace;
+    left: 0;
+    bottom: 0;
+    margin: 1em;
+    height: 3em;
+    max-height: 3em;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    border-style: groove;
+    width: 100%;
 }
   

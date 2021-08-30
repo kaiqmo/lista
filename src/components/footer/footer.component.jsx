@@ -21,7 +21,7 @@ const Footer = ()=> {
     const classes= useStyles();
     return(
     <div className="footer">
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
         <Grid item xs>
           <Paper className={classes.paper}>Creator: Kaique</Paper>
         </Grid>
