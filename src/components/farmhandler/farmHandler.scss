@@ -1,0 +1,56 @@
+.creator{
+    display: flex;
+    flex-direction: column;
+    &-buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .createItemCustom{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        > button{
+            justify-content: center;
+            display: flex;
+            justify-content: center;
+            max-width: 200pt;
+            width:100%;
+        }
+        h2{
+            padding-top:1em;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .new-task{
+            padding-top:0;
+        }
+    }
+
+}
+
+@media(max-width:966px){
+    .creator{    
+        &-buttons{
+            flex-direction: column;
+            > button{
+                margin:5pt 0;
+            }
+        }
+    }
+}
+@media(min-width:966px){
+    .createItemCustom{
+        align-self: center;
+        max-width:766px;
+    }    
+}
+@media(min-width:1560px){
+    .createItemCustom{
+        max-width:1366px;
+    }
+}
