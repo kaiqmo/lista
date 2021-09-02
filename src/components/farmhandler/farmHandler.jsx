@@ -51,16 +51,16 @@ export default class FarmHandler extends React.Component{
             <div className="creator">
                 <h3> Adicionar</h3>
                 <div className="creator-buttons">
-                    <CustomButton inverted type='submit' value="farm"   onClick={this.handleClick}> Fazenda</CustomButton>  
+                    {/* <CustomButton inverted type='submit' value="farm"   onClick={this.handleClick}> Fazenda</CustomButton>  
                     <CustomButton inverted type='submit' value="herd"   onClick={this.handleClick}> Pasto</CustomButton>
-                    <CustomButton inverted type='submit' value="animal" onClick={this.handleClick}> Animal</CustomButton>
+                    <CustomButton inverted type='submit' value="animal" onClick={this.handleClick}> Animal</CustomButton> */}
+                    <CustomButton inverted type='submit' value="stocks" onClick={this.handleClick}> Stocks</CustomButton>
                 </div>
                 {
                     this.state.type === 'farm'?
                         <div className="createItemCustom">
                             <h2>Adicionando uma Fazenda</h2>
-                            <CreateItem farm onCancel={this.handleClick} />
-                            <CustomButton  type='submit' value="" onClick={this.handleClick}> Cancelar</CustomButton>
+                            <CreateItem farm  />
                         </div>:
                     this.state.type === 'herd'?
                     <div className="createItemCustom">
@@ -73,7 +73,13 @@ export default class FarmHandler extends React.Component{
                             <h2>Adicionando um Animal</h2>
                             <CreateItem animal />
                             <CustomButton  type='submit' value="" onClick={this.handleClick}> Cancelar</CustomButton>
-                        </div>: 
+                        </div>:
+                    this.state.type === 'stocks'?
+                    <div className="createItemCustom">
+                        <h2>Adicionando um nova ação</h2>
+                        <CreateItem stocks />
+                        <CustomButton  type='submit' value="" onClick={this.handleClick}> Cancelar</CustomButton>
+                    </div>:
                     <span></span>
                         
                         

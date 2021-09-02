@@ -44,7 +44,26 @@ const config  = {
             return  querySnapshot.docs.map(docs => docs.data());
           });
           
-          // console.log(lista);
+          var userStocks = firestore.collection(`users/${userAuth.uid}/stocks/`);
+          var stocks = await userStocks.get().then(querySnapshot => {
+            return  querySnapshot.docs.map(docs => docs.data());
+          });
+
+          //farm
+          var userFarms = firestore.collection(`users/${userAuth.uid}/farms/`);
+          var farms = await userFarms.get().then(querySnapshot => {
+            return  querySnapshot.docs.map(docs => docs.data());
+          });
+          //herd
+          var userHerds = firestore.collection(`users/${userAuth.uid}/farms/`);
+          var herds = await userHerds.get().then(querySnapshot => {
+            return  querySnapshot.docs.map(docs => docs.data());
+          });
+          //animals
+          var userAnimals = firestore.collection(`users/${userAuth.uid}/farms/`);
+          var animals = await userAnimals.get().then(querySnapshot => {
+            return  querySnapshot.docs.map(docs => docs.data());
+          });
 
           const { displayName, email} = userAuth;
           const createdAt = new Date();
@@ -55,6 +74,10 @@ const config  = {
                 email,
                 createdAt,
                 lista,
+                stocks,
+                farms,
+                herds,
+                animals,
                 ...additionalData
             })
           }catch(error){
@@ -65,12 +88,219 @@ const config  = {
         return userRef;
   };
 
-  export const addItem = async(userAuth,text,title,date) => {
+  //get stock
+  export const getStock = async(userAuth,stock)=>{
+    
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+    const snapShot = await userRef.get();
+    if(snapShot.exists ){
+
+      var userStocks = firestore.collection(`users/${userAuth.uid}/stocks/${stock}/list`);
+      var stock_list = await userStocks.get().then(querySnapshot => {
+        return  querySnapshot.docs.map(docs => docs.data());
+      });
+      console.log(stock_list);
+
+      var target = { ...stock, list:stock_list};
+      const { displayName, email} = userAuth;
+      const createdAt = new Date();
+      
+      var userStocks = firestore.collection(`users/${userAuth.uid}/stocks/`);
+      var stocks = await userStocks.get().then(querySnapshot => {
+        return  querySnapshot.docs.map(docs => docs.data());
+      });
+
+      try{
+        await userRef.set({
+            displayName,
+            email,
+            createdAt,
+            stocks,
+            target
+        })
+      }catch(error){
+          console.log('error creating user',error.message);
+      }
+    }
+    
+  }
+
+  //adicionar e atualizar as stocks
+  export const testeStocks = async(userAuth,stock,pricestock, quantity)=>{
+    
+    var id = String(new Date().getTime());
+    var createdAt = new Date().toLocaleDateString();
+    var userStocks = firestore.collection(`users/${userAuth.uid}/stocks/`);
+    var stocks = await userStocks.get().then(querySnapshot => {
+      return  querySnapshot.docs.map(docs => docs.data());
+    });
+    if(stocks){
+
+       // ações que existem 
+      var stock_exists =  stocks.filter( e => e.stock === stock.toLocaleUpperCase()|| e.stock === stock.toLocaleLowerCase())[0];
+      if(stock_exists){
+         // ação existe no array
+        var new_qtd = +quantity + +stock_exists.quantity;
+        var new_val = ( (+quantity * +pricestock)+(+stock_exists.quantity * +stock_exists.pricestock) ) / +new_qtd;
+
+        var data_new = {
+          stock:stock,
+          quantity: new_qtd,
+          pricestock:new_val,
+          updatedAt:createdAt,
+          id:stock_exists.id,
+          createdAt:stock_exists.createdAt
+        }
+        //atualiza a ação principal 
+        await firestore.collection(`users/${userAuth.uid}/stocks`).doc(stock)
+        .update(data_new)
+        .then( snapShot=>snapShot.val())
+        .catch( e =>({
+          errorCode:e.code,
+          errorMessage:e.message
+        }));
+
+      }else{
+
+        const data = {
+          stock:stock,
+          pricestock:pricestock,
+          quantity:quantity,
+          id:id,
+          createdAt:createdAt,
+          updatedAt:createdAt
+        };
+        //cria a ação principal
+        await firestore.collection(`users/${userAuth.uid}/stocks`).doc(stock)
+        .set(data)
+        .then(async () => {
+            console.log('Ação principal adicionada!');
+        })
+        .catch(error => {
+          console.log(error);
+        });
+
+      }
+      
+      const data = {
+        stock:stock,
+        pricestock:pricestock,
+        quantity:quantity,
+        id:id,
+        createdAt:createdAt,
+        updatedAt:createdAt
+      };        
+      //cria uma nova ordem efetuada na lista da ação principal
+      await firestore.collection(`users/${userAuth.uid}/stocks/${stock}/list`).doc(id)
+      .set(data)
+      .then(async () => {
+          console.log('adicionado a lista de ordens!');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  };
+    
+  
+  export const addStocks = async(userAuth,stock,pricestock,quantity) => {
+    var id = String(new Date().getTime());
+    var createdAt = new Date().toLocaleDateString();
+    const data = {
+      stock:stock,
+      pricestock:pricestock,
+      quantity:quantity,
+      id:id,
+      createdAt:createdAt,
+      updatedAt:createdAt
+    };
+    console.log('data uid',data);
+    console.log('user uid',userAuth.uid);
+    
+    await firestore.collection(`users/${userAuth.uid}/stocks`).doc(stock)
+      .set(data)
+      .then(async () => {
+          console.log('item added!');
+      })
+      .catch(error => {
+        console.log(error);
+        // NotificationManager.error(error.message, "Create Item failed");
+        // this.setState({ isSubmitting: false });
+      });
+  };
+
+  export const addFarm = async(userAuth,text,title) => {
     var id = String(new Date().getTime());
     const data = {
-      text: text,
       title:title,
-      date:date,
+      text: text,
+      id:id,
+      createdAt:id
+    };
+    await firestore.collection(`users/${userAuth.uid}/farm`).doc(id)
+      .set(data)
+      .then(async () => {
+          console.log('item added!');
+      })
+      .catch(error => {
+        console.log(error);
+        // NotificationManager.error(error.message, "Create Item failed");
+        // this.setState({ isSubmitting: false });
+      });
+  };
+
+  export const addHerd = async(userAuth,text,title,size) => {
+    var id = String(new Date().getTime());
+    const data = {
+      title:title,
+      text: text,
+      size:size,
+      id:id,
+      createdAt:id
+    };
+    await firestore.collection(`users/${userAuth.uid}/herd`).doc(id)
+      .set(data)
+      .then(async () => {
+          console.log('item added!');
+      })
+      .catch(error => {
+        console.log(error);
+        // NotificationManager.error(error.message, "Create Item failed");
+        // this.setState({ isSubmitting: false });
+      });
+  };
+
+  export const addAnimal = async(userAuth,text,title,weight,father,mother,birthday,vaccine) => {
+    var id = String(new Date().getTime());
+    const data = {
+      title:title,
+      text: text,
+      weight:weight,
+      father:father,
+      mother:mother,
+      birthday:birthday,
+      vaccine:vaccine,
+      id:id,
+      createdAt:id
+    };
+    await firestore.collection(`users/${userAuth.uid}/animals`).doc(id)
+      .set(data)
+      .then(async () => {
+          console.log('item added!');
+      })
+      .catch(error => {
+        console.log(error);
+        // NotificationManager.error(error.message, "Create Item failed");
+        // this.setState({ isSubmitting: false });
+      });
+  };
+
+  export const addItem = async(userAuth,text,title) => {
+    var id = String(new Date().getTime());
+    const data = {
+      title:title,
+      text: text,
       id:id,
       createdAt:id
     };
@@ -121,7 +351,26 @@ const config  = {
     var lista =await userList.get().then(querySnapshot => {
             return  querySnapshot.docs.map(docs => docs.data());
           });
-    // console.log(lista);
+    var userStocks = firestore.collection(`users/${userAuth.uid}/stocks/`);
+    var stocks = await userStocks.get().then(querySnapshot => {
+      return  querySnapshot.docs.map(docs => docs.data());
+    });
+
+    //farm
+    var userFarms = firestore.collection(`users/${userAuth.uid}/farms/`);
+    var farms = await userFarms.get().then(querySnapshot => {
+      return  querySnapshot.docs.map(docs => docs.data());
+    });
+    //herd
+    var userHerds = firestore.collection(`users/${userAuth.uid}/farms/`);
+    var herds = await userHerds.get().then(querySnapshot => {
+      return  querySnapshot.docs.map(docs => docs.data());
+    });
+    //animals
+    var userAnimals = firestore.collection(`users/${userAuth.uid}/farms/`);
+    var animals = await userAnimals.get().then(querySnapshot => {
+      return  querySnapshot.docs.map(docs => docs.data());
+    });
 
            const { displayName, email} = userAuth;
            const createdAt = new Date();
@@ -131,7 +380,11 @@ const config  = {
                  displayName,
                  email,
                  createdAt,
-                 lista
+                 lista,
+                 stocks,
+                 farms,
+                 herds,
+                 animals
              })
            }catch(error){
                console.log('error creating user',error.message);
@@ -142,10 +395,10 @@ const config  = {
   export const deleteItem = async(userAuth,item) => {
     // Create a reference to the cities collection
 
-    var lista = firestore.collection(`users/${userAuth.uid}/lista/`);
+    var lista = firestore.collection(`users/${userAuth.uid}/stocks/`);
     
     // Create a query against the collection.
-    await lista.doc(item.id).delete()
+    await lista.doc(item.stock).delete()
       .then(() => {
         console.log('Item removed!');
       })

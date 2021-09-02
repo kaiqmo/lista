@@ -1,0 +1,22 @@
+---------
+
+Questões relacionadas a stocks
+
+-----
+
+chave : 
+    ACKJX8IKT6PIPE2X
+-----
+
+Procurar stocks - >
+
+https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=ITSA3.SAO&apikey=ACKJX8IKT6PIPE2X
+
+trocar KEYWORDS... se for br ITSA.SAO
+
+
+-------
+
+Caso ação exista  usar o TIME_SERIES_DAILY_ADJUSTED
+
+https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=itsa3.sao&outputsize=full&apikey=ACKJX8IKT6PIPE2X

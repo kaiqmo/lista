@@ -44,7 +44,9 @@
         border: none;
       }
     }
-
+    &.update{
+      margin: 1em;
+    }
     &.success{
       background-color: lightseagreen;
       color:black;
