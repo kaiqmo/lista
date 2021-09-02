@@ -1,28 +1,27 @@
 body{
-  font-family: 'monospace';
-  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  overflow-y: auto;
 }
 a{
   text-decoration: none;
   color:black;
 }
 .App{
-  
-  padding:4em 6em;
+  padding:0em;
 }
 
 *{
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
 
 @media(max-width:966px){
   body{
-      font-family: 'Open Sans Condensed';
+      font-family: 'Lato', sans-serif;
       font-size: .85em;
   }
   .App{
-    width:100%;
-    padding:1em;
-    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
   }
 }

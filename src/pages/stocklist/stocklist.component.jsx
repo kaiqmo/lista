@@ -1,35 +1,31 @@
 import React from 'react';
+
 import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {selectCurrentUser} from '../../redux/user/user.selector';
 import {createStructuredSelector} from 'reselect';
+import { auth,getStock } from '../../firebase/firebase.utils';
 import CollectionItem from '../../components/collection-item/collection-item.component';
-import CustomButton from '../../components/custom-button/custom-button.component';
-import './todolist.component.scss';
-import FarmHandler from '../../components/farmhandler/farmHandler';
-import {auth,UpdateList} from '../../firebase/firebase.utils';
-//onClick={this.handleClick}
 
-const TodoPage = (currentUser) =>{
-    console.log(currentUser);
-    var lista = currentUser.currentUser? currentUser.currentUser.stocks : null;
-    lista  = lista === [] || lista === ''? null : lista;
+
+const StockPage = (currentUser,stock) =>{
+
     
     var userAuth = auth.currentUser;
+    getStock(userAuth,stock);
+    var lista = currentUser.currentUser? currentUser.currentUser.target : null;
+    lista  = lista === [] || lista === ''? null : lista;
 
     return (
-          <div className='todo-page'>
-              {
+        <div className="stock-orders">
+            {
                 currentUser.currentUser?
                   <h2>Bem Vindo {currentUser.currentUser.email}</h2>
                 :
                 <Redirect to='../signin'/>
-              }
-              <div className="collection">
-                <FarmHandler/>
-              <h2>---</h2>
-              <CustomButton inverted update type='submit' onClick={() => UpdateList(userAuth)} >Atualizar </CustomButton>
-                {
+            }
+            <h2>---</h2>
+            {
                   lista?
                   <>
                    { lista.map( (item) => (
@@ -41,13 +37,15 @@ const TodoPage = (currentUser) =>{
                       <h2>Sem ações no momento, adicione.</h2>
                    </div>                 
                 }
-              </div>
-            
+
         </div>
-    )
-};
+
+    );
+
+}
+
 const mapStateToProps = createStructuredSelector({
     currentUser : selectCurrentUser
 });
 
-export default  connect(mapStateToProps)(TodoPage);
+export default  connect(mapStateToProps)(StockPage);

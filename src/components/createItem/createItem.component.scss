@@ -9,7 +9,11 @@
     .buttons{
         display: flex;
         text-align: center;
+        justify-content:center;
         align-items: center;
-        margin: 0 45% 0 45%;
+        width:100%;
+        button{
+            width:200pt;
+        }
     }
 }

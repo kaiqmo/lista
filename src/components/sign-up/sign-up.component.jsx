@@ -1,7 +1,7 @@
 import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-
+import './sign-up.styles.scss';
 import {auth, CreateUserProfileDocument} from '../../firebase/firebase.utils';
 
 class SignUp extends React.Component{
@@ -35,7 +35,7 @@ class SignUp extends React.Component{
              });
         }catch(error){
             if(error.code === "auth/email-already-in-use")
-                alert("Email already registered!");
+                alert("Email já registrado!");
             console.error(error);
         }
     }
@@ -73,7 +73,7 @@ class SignUp extends React.Component{
                     name='password'
                     value={password}
                     onChange={this.handleChange}
-                    label='Password'
+                    label='Senha'
                     required
                     />
                     <FormInput
@@ -81,10 +81,12 @@ class SignUp extends React.Component{
                     name='confirmPassword'
                     value={confirmPassword}
                     onChange={this.handleChange}
-                    label='Confirm your Password'
+                    label='Confirme sua senha'
                     required
                     />
-                    <CustomButton type='submit'>SIGN UP</CustomButton>
+                    <div className='buttons'>
+                        <CustomButton type='submit'>Cadastrar</CustomButton>
+                    </div>
                 </form>
             </div>
         )
