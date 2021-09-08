@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import CustomButton from '../custom-button/custom-button.component.jsx';
 import {selectCurrentUser} from '../../redux/user/user.selector';
-import Grid from '@material-ui/core/Grid';
 import {auth, deleteItem,UpdateList, completedItem} from '../../firebase/firebase.utils.js';
 
 import {setCurrentUser} from '../../redux/user/user.actions';
